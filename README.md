@@ -20,17 +20,17 @@
 2. **配置国际化文件位置**
 
 	```yml
-spring:
-     messages:
-       basename: statistics/i18n/messages
-       encoding: UTF-8 
+      spring:
+        messages:
+          basename: statistics/i18n/messages
+          encoding: UTF-8 
 	```
 
 3. **添加解析器**
 
 	```java
-@Configuration
-public class LocaleConfig {
+    @Configuration
+    public class LocaleConfig {
 
 	/**
 	 * 默认解析器 其中locale表示默认语言
@@ -41,8 +41,8 @@ public class LocaleConfig {
 		localeResolver.setDefaultLocale(Locale.CHINA);
 		return localeResolver;
 	  }
-}
-	```
+    }
+    ```
 
 4. **添加拦截器**
 
@@ -82,12 +82,11 @@ public class LocaleConfig {
    
    需要在请求路径后面加上 `lang={}` ，也可以不填进行默认匹配
 
-![image-20240629220839152](README.assets/image-20240629220839152.png)
+    ![image-20240629220839152](README.assets/image-20240629220839152.png)
 
-![image-20240629220855073](README.assets/image-20240629220855073.png)
+    ![image-20240629220855073](README.assets/image-20240629220855073.png)
 
-​		成功访问到不同的 `username` 说明成功实现国际化
-
+    成功访问到不同的 `username` 说明成功实现国际化
 6. **遇到的问题**
 
    出现中文无法访问的情况，一般就是文件的编码出现问题，需要确认国际化的文件是否是 `UTF-8` 的编码
